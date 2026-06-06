@@ -1,0 +1,11 @@
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Developer environment / caches
+.vscode/
+.idea/
+*.log
+node_modules/
+dist/
+build/
