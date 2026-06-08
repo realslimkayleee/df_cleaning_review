@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;600;700;800;900&family=Playfair+Display:ital,wght@1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
 
 /* ==========================================================================
    CASCADE LAYERS DEFINITION
@@ -57,8 +57,8 @@
     --color-border: hsl(210, 16%, 93%);
     
     /* Typography */
-    --font-sans: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-body: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     --font-serif: 'Playfair Display', Georgia, serif;
     
     /* Spacing & Layout */
@@ -104,20 +104,22 @@
   }
 
   header {
-    background-color: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    position: sticky;
+    background-color: transparent;
+    backdrop-filter: none;
+    position: absolute;
     top: 0;
+    left: 0;
+    width: 100%;
     z-index: 100;
-    border-block-end: 1px solid var(--color-border);
-    box-shadow: var(--shadow-sm);
+    border-block-end: none;
+    box-shadow: none;
   }
 
   .nav-wrapper {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-block: 1rem;
+    padding-block: 0.5rem;
   }
 
   /* Footer Layout */
@@ -153,9 +155,15 @@
   .logo-link {
     display: flex;
     align-items: center;
-    inline-size: 210px;
-    block-size: 52px;
+    inline-size: auto;
+    block-size: 110px;
     transition: transform var(--transition-speed);
+  }
+
+  .logo-link img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
   }
 
   .logo-link:hover {
@@ -181,10 +189,10 @@
 
   .nav-link {
     font-family: var(--font-sans);
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: var(--color-navy);
-    letter-spacing: 0.5px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--color-navy-dark);
+    letter-spacing: 1.2px;
     padding-block: 0.5rem;
     transition: color var(--transition-speed);
     display: flex;
@@ -193,9 +201,25 @@
     cursor: pointer;
   }
 
-  .nav-link:hover,
-  .nav-link[aria-current="page"] {
+  .nav-link:hover {
     color: var(--color-blue);
+  }
+
+  .nav-link[aria-current="page"] {
+    color: var(--color-navy);
+    position: relative;
+  }
+
+  .nav-link[aria-current="page"]::after {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 24px;
+    height: 3px;
+    background-color: var(--color-yellow);
+    border-radius: 2px;
   }
 
   /* Services Dropdown Styles */
@@ -263,11 +287,11 @@
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    padding: 0.8rem 1.6rem;
-    border-radius: 30px;
+    padding: 0.7rem 1.5rem;
+    border-radius: 6px;
     font-family: var(--font-sans);
-    font-size: 0.9rem;
-    font-weight: 700;
+    font-size: 0.82rem;
+    font-weight: 500;
     cursor: pointer;
     transition: background-color var(--transition-speed), color var(--transition-speed), border-color var(--transition-speed), transform var(--transition-speed), box-shadow var(--transition-speed);
     text-wrap: nowrap;
@@ -283,14 +307,14 @@
   }
 
   .btn-outline {
-    background-color: var(--color-blue-light);
+    background-color: transparent;
     color: var(--color-blue);
-    border: 2px solid rgba(0, 86, 179, 0.15);
+    border: 1.5px solid var(--color-blue);
   }
 
   .btn-outline:hover {
-    background-color: var(--color-blue-light-hover);
-    border-color: rgba(0, 86, 179, 0.3);
+    background-color: rgba(0, 86, 179, 0.05);
+    border-color: var(--color-blue);
     box-shadow: var(--shadow-sm);
   }
 
@@ -338,30 +362,41 @@
 
   /* Hero Section */
   .hero-section {
-    background: linear-gradient(to bottom, #dbeafe 0%, #f1f5f9 100%);
-    padding-block: 5rem 0; /* Bottom spacing comes from the absolute/relative overlap */
+    background-image: linear-gradient(to bottom, rgba(219, 234, 254, 0.2) 0%, rgba(241, 245, 249, 0.05) 60%), url('../assets/hero-v3.jpg');
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: cover;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-block-start: 8.5rem;
+    padding-block-end: 52vh; /* Constrains content to sky and above the house */
     text-align: center;
     position: relative;
     overflow: hidden;
+    box-sizing: border-box;
   }
 
   .hero-badge {
     font-family: var(--font-sans);
-    font-size: 0.85rem;
-    font-weight: 800;
+    font-size: 0.72rem;
+    font-weight: 500;
     color: var(--color-blue);
-    letter-spacing: 2px;
+    letter-spacing: 4px;
     text-transform: uppercase;
-    margin-block-end: 1rem;
+    margin-block-end: 0.35rem;
     display: inline-block;
   }
 
   .hero-title {
-    font-size: clamp(2.5rem, 1rem + 5vw, 4.5rem);
+    font-family: var(--font-serif);
+    font-size: clamp(1.8rem, 1.2rem + 2.5vw, 3.2rem);
     line-height: 1.15;
-    font-weight: 900;
+    font-weight: 400;
     color: var(--color-navy-dark);
-    margin-block-end: 1.5rem;
+    margin-block-end: 0.75rem;
     max-inline-size: 900px;
     margin-inline: auto;
     text-wrap: balance;
@@ -370,7 +405,8 @@
   .hero-title em {
     font-family: var(--font-serif);
     font-style: italic;
-    color: var(--color-navy);
+    font-weight: 400;
+    color: var(--color-navy-dark);
     position: relative;
     white-space: nowrap;
     display: inline-block;
@@ -379,10 +415,10 @@
   .hero-title em::after {
     content: "";
     position: absolute;
-    left: -2%;
+    left: 0;
     bottom: 8px;
-    width: 104%;
-    height: 8px;
+    width: 100%;
+    height: 4px;
     background-color: var(--color-yellow);
     z-index: -1;
     transform: skewX(-15deg);
@@ -390,11 +426,13 @@
   }
 
   .hero-desc {
-    font-size: clamp(1.05rem, 0.95rem + 0.5vw, 1.25rem);
+    font-family: var(--font-sans);
+    font-size: clamp(0.85rem, 0.75rem + 0.2vw, 0.95rem);
+    font-weight: 400;
     color: var(--color-gray-dark);
-    max-inline-size: 600px;
+    max-inline-size: 720px;
     margin-inline: auto;
-    margin-block-end: 2.5rem;
+    margin-block-end: 1.5rem;
     text-wrap: pretty;
   }
 
@@ -402,7 +440,7 @@
     display: flex;
     justify-content: center;
     gap: 1.25rem;
-    margin-block-end: 4rem;
+    margin-block-end: 0;
     flex-wrap: wrap;
   }
 
@@ -497,7 +535,7 @@
   .page-header {
     background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-dark) 100%);
     color: var(--color-white);
-    padding-block: 5rem;
+    padding-block: 9rem 5rem;
     text-align: center;
   }
 
@@ -688,7 +726,9 @@
   }
 
   .hero-section {
-    padding-block-start: 4rem;
+    height: 100dvh;
+    padding-block-start: 7.5rem;
+    padding-block-end: 50vh;
   }
 
   .hero-buttons {
