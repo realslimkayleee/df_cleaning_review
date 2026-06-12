@@ -3626,7 +3626,7 @@
 }
 
 .services-headline {
-  font-family: var(--font-sans);
+  font-family: var(--font-serif);
   font-size: clamp(2.45rem, 5vw, 4.2rem);
   font-weight: 900;
   color: var(--color-navy-dark);
@@ -3804,7 +3804,7 @@
 }
 
 .card-title-v2 {
-  font-family: var(--font-sans);
+  font-family: var(--font-serif);
   font-size: clamp(1.18rem, 1.02rem + 0.48vw, 1.42rem);
   font-weight: 900;
   color: var(--color-navy-dark);
@@ -3879,7 +3879,7 @@
 }
 
 .cta-title-v2 {
-  font-family: var(--font-sans);
+  font-family: var(--font-serif);
   font-size: clamp(1.55rem, 1.25rem + 0.9vw, 2rem);
   font-weight: 900;
   color: var(--color-white);
@@ -3948,4 +3948,23 @@
 
 .btn-secondary-v2:hover {
   border-color: var(--color-white);
+}
+
+/* Service Detail Grid */
+.service-detail-grid {
+  display: grid;
+  gap: 3rem;
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .service-detail-grid {
+    grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+    gap: clamp(2rem, 5vw, 4rem);
+  }
+}
+
+.about-hero-title {
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
