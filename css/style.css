@@ -2605,9 +2605,9 @@
 
   .team-showcase-grid {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
+    gap: 1.5rem !important;
     width: 100% !important;
-    max-width: 400px !important;
+    max-width: 320px !important;
     margin-inline: auto !important;
     justify-self: center !important;
     padding: 0 !important;
@@ -2615,6 +2615,10 @@
 
   .team-person-card,
   .team-main-photo {
+    background-color: var(--color-white) !important;
+    border: 1px solid rgba(0, 86, 179, 0.1) !important;
+    border-radius: 30px !important;
+    box-shadow: 0 24px 65px rgba(12, 35, 64, 0.12) !important;
     margin: 0 auto !important;
     width: 100% !important;
     max-width: 100% !important;
