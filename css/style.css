@@ -2708,9 +2708,15 @@
   .about-leadership {
     grid-template-columns: 1fr;
     inline-size: 100%;
-    justify-self: start;
-    margin-inline: 0;
+    justify-self: center;
+    margin-inline: auto;
     max-inline-size: 320px;
+  }
+
+  .about-team-photo {
+    justify-self: center;
+    margin-inline: auto;
+    width: 100%;
   }
 
   .about-leadership::before {
