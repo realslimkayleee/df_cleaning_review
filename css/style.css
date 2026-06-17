@@ -2479,11 +2479,19 @@
   .nav-link-wrapper {
     width: 100%;
     border-block-end: 1px solid var(--color-border);
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .nav-link-wrapper .nav-link {
     border-block-end: none !important;
-    padding-inline-end: 0 !important;
+    padding-inline: 0 !important;
+    margin-inline: 0 !important;
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+    flex: 1;
   }
 
   /* Mobile Dropdown adjustment */
@@ -2600,8 +2608,8 @@
     gap: 2.5rem;
     width: 100% !important;
     max-width: 400px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
+    margin-inline: auto !important;
+    justify-self: center !important;
     padding: 0 !important;
   }
 
