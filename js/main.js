@@ -242,6 +242,10 @@ document.addEventListener('DOMContentLoaded', () => {
   accordionToggles.forEach(toggle => {
     toggle.addEventListener('click', function(e) {
       if (window.innerWidth <= 768) {
+        if (e.target.tagName.toLowerCase() === 'a') {
+          return; // Let the link navigate normally
+        }
+        
         e.preventDefault();
         e.stopPropagation();
         

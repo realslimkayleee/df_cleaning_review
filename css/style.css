@@ -2571,6 +2571,36 @@
 
   .team-preview {
     padding-block: 4rem;
+    overflow: hidden;
+    width: 100vw;
+    box-sizing: border-box;
+  }
+
+  .team-preview-header,
+  .team-preview-title,
+  .team-preview-copy {
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+  }
+
+  .team-showcase-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    width: 100% !important;
+    max-width: 400px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 0 !important;
+  }
+
+  .team-preview::before,
+  .team-preview::after,
+  .team-person-card--darwin::before,
+  .team-person-card--alejandra::before,
+  .team-showcase-grid::after {
+    display: none !important;
   }
 
   .home-services {
