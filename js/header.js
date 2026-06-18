@@ -73,8 +73,8 @@ class SiteHeader extends HTMLElement {
                 <li><a href="${rootPath}services/move-in-move-out.html" class="dropdown-link">Move-In / Move-Out Cleaning</a></li>
                 <li><a href="${rootPath}services/window-washing.html" class="dropdown-link">Window Washing</a></li>
                 <li><a href="${rootPath}services/carpet-cleaning.html" class="dropdown-link">Carpet Cleaning</a></li>
-                <li><a href="${rootPath}services/coaching.html" class="dropdown-link">Coaching</a></li>
                 <li><a href="${rootPath}services/home-remodeling.html" class="dropdown-link">Home Remodeling</a></li>
+                <li><a href="${rootPath}services/coaching.html" class="dropdown-link">Coaching</a></li>
               </ul>
             </li>
             <li class="nav-item">
