@@ -1006,7 +1006,7 @@
     font-size: clamp(1rem, 0.95rem + 0.5vw, 1.25rem);
     line-height: 1.5;
     margin-block-start: 1rem;
-    margin-block-end: 4rem;
+    margin-block-end: 2rem;
   }
 
   .reviews-carousel {
