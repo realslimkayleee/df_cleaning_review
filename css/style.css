@@ -4727,7 +4727,7 @@ form .btn-primary:hover {
   max-width: 1300px;
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
+  grid-template-columns: 1.3fr 1fr;
   gap: 4rem;
   align-items: center;
 }

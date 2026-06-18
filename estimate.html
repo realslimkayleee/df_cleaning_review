@@ -21,8 +21,27 @@
       <div class="estimate-bg-overlay"></div>
       
       <div class="estimate-container">
-        <!-- LEFT COLUMN: INFO PANEL -->
-        <div class="estimate-info-panel reveal-up">
+        <!-- LEFT COLUMN: FORM CARD -->
+        <div class="estimate-form-card reveal-up">
+          <div class="estimate-form-header">
+            <div class="icon-wrap">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+            </div>
+            <h2>Tell Us About Your Project</h2>
+            <p style="margin-bottom: 2rem;">Our estimates are completely customized based on your specific needs and space.</p>
+          </div>
+          
+          <site-contact-form root-path="" inline></site-contact-form>
+        </div>
+
+        <!-- RIGHT COLUMN: INFO PANEL -->
+        <div class="estimate-info-panel reveal-up" style="transition-delay: 0.2s;">
           <div class="estimate-headline-group">
             <h1>Request Estimate<span class="text-blue">.</span></h1>
             <p>Fill out the form and we'll get back to you with a fast, no-obligation estimate.</p>
@@ -56,25 +75,6 @@
               </div>
             </div>
           </div>
-        </div>
-        
-        <!-- RIGHT COLUMN: FORM CARD -->
-        <div class="estimate-form-card reveal-up" style="transition-delay: 0.2s;">
-          <div class="estimate-form-header">
-            <div class="icon-wrap">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                <polyline points="14 2 14 8 20 8"></polyline>
-                <line x1="16" y1="13" x2="8" y2="13"></line>
-                <line x1="16" y1="17" x2="8" y2="17"></line>
-                <polyline points="10 9 9 9 8 9"></polyline>
-              </svg>
-            </div>
-            <h2>Tell Us About Your Project</h2>
-            <p style="margin-bottom: 2rem;">Our estimates are completely customized based on your specific needs and space.</p>
-          </div>
-          
-          <site-contact-form root-path="" inline></site-contact-form>
         </div>
       </div>
     </div>
