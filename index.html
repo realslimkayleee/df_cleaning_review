@@ -199,11 +199,18 @@
     </section>
 
     <!-- INSTAGRAM FEED -->
-    <section class="instagram-section reveal-up" id="instagram-feed" aria-labelledby="instagram-title" style="padding-block: 6rem; background-color: var(--color-white); position: relative;">
+    <section class="instagram-section reveal-up" id="instagram-feed" aria-labelledby="instagram-title" style="padding-top: 2rem; padding-bottom: 6rem; background-color: var(--color-white); position: relative;">
       <div class="container instagram-container" style="text-align: center;">
         <div class="instagram-header" style="margin-bottom: 3rem;">
-          <div class="instagram-icon" style="color: #E1306C; margin-bottom: 1rem; display: flex; justify-content: center;">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <div class="instagram-icon" style="margin-bottom: 1rem; display: flex; justify-content: center;">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="url(#ig-theme-gradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <defs>
+                <linearGradient id="ig-theme-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#94a3b8" /> <!-- Grey -->
+                  <stop offset="50%" stop-color="#38bdf8" /> <!-- Blue/Teal -->
+                  <stop offset="100%" stop-color="#cbd5e1" /> <!-- Light Grey -->
+                </linearGradient>
+              </defs>
               <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
               <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
               <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
