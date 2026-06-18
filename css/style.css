@@ -4727,7 +4727,7 @@ form .btn-primary:hover {
   max-width: 1300px;
   width: 100%;
   display: grid;
-  grid-template-columns: 1.3fr 1fr;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
   gap: 4rem;
   align-items: center;
 }
@@ -4737,6 +4737,7 @@ form .btn-primary:hover {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  min-width: 0;
 }
 
 .estimate-headline-group h1 {
@@ -4815,13 +4816,14 @@ form .btn-primary:hover {
   color: var(--color-blue);
 }
 
-/* RIGHT COLUMN: FORM */
+/* RIGHT COLUMN: FORM CARD */
 .estimate-form-card {
   background-color: var(--color-white);
   border-radius: 2rem;
   padding: 3rem;
   box-shadow: 0 25px 60px rgba(10, 36, 66, 0.08), 0 5px 15px rgba(0, 0, 0, 0.03);
   border: 1px solid var(--color-border);
+  min-width: 0;
 }
 
 .estimate-form-header {
@@ -4965,7 +4967,7 @@ textarea.estimate-input {
 }
 
 /* RESPONSIVE */
-@media (max-width: 992px) {
+@media (max-width: 850px) {
   .estimate-container {
     grid-template-columns: 1fr;
     gap: 3rem;
