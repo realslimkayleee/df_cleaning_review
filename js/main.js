@@ -554,3 +554,99 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.appendChild(callBtn);
   }
 });
+
+
+
+// CUSTOM INSTAGRAM CAROUSEL EXTRACTION
+document.addEventListener('DOMContentLoaded', () => {
+  const skWrapper = document.getElementById('sk-hidden-wrapper');
+  const customCarousel = document.getElementById('custom-ig-carousel');
+  const prevBtn = document.querySelector('.custom-ig-prev');
+  const nextBtn = document.querySelector('.custom-ig-next');
+  
+  if (!skWrapper || !customCarousel) return;
+
+  const observer = new MutationObserver((mutations) => {
+    // SociableKit usually creates elements like .sk-instagram-feed-item or .sk-item
+    const items = skWrapper.querySelectorAll('.sk-item, .sk-ww-instagram-feed-item, .sk-instagram-item, .sk-ww-instagram-item');
+    if (items.length > 0) {
+      // Small timeout to ensure images are fully rendered in DOM
+      setTimeout(() => {
+        const posts = [];
+        // Re-query to get fully formed items after timeout
+        const loadedItems = skWrapper.querySelectorAll('.sk-item, .sk-ww-instagram-feed-item, .sk-instagram-item, .sk-ww-instagram-item');
+        
+        loadedItems.forEach(item => {
+           const img = item.querySelector('img');
+           const link = item.tagName.toLowerCase() === 'a' ? item : (item.querySelector('a') || item);
+           
+           let bgSrc = '';
+           if (img && img.src) {
+             bgSrc = img.src;
+           } else if (item.style.backgroundImage) {
+             // Sometimes sociablekit uses background images
+             const match = item.style.backgroundImage.match(/url\("?(.+?)"?\)/);
+             if (match) bgSrc = match[1];
+           }
+
+           // Filter out placeholder/transparent images often used by widgets before lazyloading
+           if (bgSrc && !bgSrc.includes('data:image/gif') && posts.length < 9) { 
+             posts.push({ src: bgSrc, href: link.href || 'https://www.instagram.com/df.cleaning/' });
+           }
+        });
+        
+        if (posts.length > 0) {
+          observer.disconnect();
+          renderCustomCarousel(posts);
+        }
+      }, 1500); // 1.5s delay to let lazyloaded images populate their src
+    }
+  });
+  
+  observer.observe(skWrapper, { childList: true, subtree: true });
+
+  function renderCustomCarousel(posts) {
+    customCarousel.innerHTML = '';
+    
+    posts.forEach(post => {
+      const itemHTML = `
+        <div class="custom-ig-item">
+          <img src="${post.src}" alt="Instagram post" loading="lazy">
+          <a href="${post.href}" target="_blank" rel="noopener noreferrer" class="custom-ig-overlay">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+            <span>View Post</span>
+          </a>
+        </div>
+      `;
+      customCarousel.insertAdjacentHTML('beforeend', itemHTML);
+    });
+
+    // Remove the hidden widget completely so it doesn't leak memory or impact layout
+    setTimeout(() => skWrapper.remove(), 1000);
+  }
+
+  // Carousel Navigation
+  if (prevBtn && nextBtn) {
+    prevBtn.addEventListener('click', () => {
+      const item = customCarousel.querySelector('.custom-ig-item');
+      if (item) {
+        const itemWidth = item.offsetWidth;
+        const gap = parseInt(window.getComputedStyle(customCarousel).gap) || 32;
+        customCarousel.scrollBy({ left: -(itemWidth + gap), behavior: 'smooth' });
+      }
+    });
+    
+    nextBtn.addEventListener('click', () => {
+      const item = customCarousel.querySelector('.custom-ig-item');
+      if (item) {
+        const itemWidth = item.offsetWidth;
+        const gap = parseInt(window.getComputedStyle(customCarousel).gap) || 32;
+        customCarousel.scrollBy({ left: itemWidth + gap, behavior: 'smooth' });
+      }
+    });
+  }
+});

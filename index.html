@@ -199,9 +199,9 @@
     </section>
 
     <!-- INSTAGRAM FEED -->
-    <section class="instagram-section reveal-up" id="instagram-feed" aria-labelledby="instagram-title" style="padding-block: 4rem; background-color: var(--color-white);">
+    <section class="instagram-section reveal-up" id="instagram-feed" aria-labelledby="instagram-title" style="padding-block: 6rem; background-color: var(--color-white); position: relative;">
       <div class="container instagram-container" style="text-align: center;">
-        <div class="instagram-header" style="margin-bottom: 2rem;">
+        <div class="instagram-header" style="margin-bottom: 3rem;">
           <div class="instagram-icon" style="color: #E1306C; margin-bottom: 1rem; display: flex; justify-content: center;">
             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
@@ -212,11 +212,33 @@
           <h2 class="instagram-title" id="instagram-title" style="margin: 0 0 0.5rem 0;">
             <a href="https://www.instagram.com/df.cleaning/" target="_blank" rel="noopener noreferrer" style="font-family: var(--font-sans); color: var(--color-navy-dark); font-size: clamp(2.5rem, 6vw, 3.5rem); font-weight: 900; letter-spacing: -0.03em; text-decoration: none; transition: opacity 0.3s ease;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">@df.cleaning</a>
           </h2>
-          <p class="instagram-subtitle" style="color: var(--color-text-main); font-size: 1.15rem; font-weight: 500;">Keep up with our team on Instagram!</p>
+          <p class="instagram-subtitle" style="color: var(--color-text-main); font-size: 1.15rem; font-weight: 500; margin-bottom: 1.5rem;">Keep up with our team on Instagram!</p>
+          <a href="https://www.instagram.com/df.cleaning/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="background-color: #E1306C; border-color: #E1306C; display: inline-flex; align-items: center; gap: 0.5rem; border-radius: 50px;">
+            Follow Us on Instagram
+          </a>
         </div>
 
-        <div class="sk-instagram-feed" data-embed-id="25690573"></div>
-        <script src="https://widgets.sociablekit.com/instagram-feed/widget.js" defer></script>
+        <!-- Custom Interactive Carousel -->
+        <div class="custom-ig-carousel-wrapper">
+          <button class="custom-ig-nav custom-ig-prev" aria-label="Previous posts">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+          
+          <div class="custom-ig-carousel" id="custom-ig-carousel">
+            <!-- Loading placeholder -->
+            <div class="custom-ig-loading">Loading live Instagram feed...</div>
+          </div>
+          
+          <button class="custom-ig-nav custom-ig-next" aria-label="Next posts">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+        </div>
+
+        <!-- Hidden SociableKit Widget for Data Extraction -->
+        <div id="sk-hidden-wrapper" style="display: none !important; opacity: 0; pointer-events: none; position: absolute; z-index: -9999; visibility: hidden;">
+          <div class="sk-instagram-feed" data-embed-id="25690573"></div>
+          <script src="https://widgets.sociablekit.com/instagram-feed/widget.js" defer></script>
+        </div>
       </div>
     </section>
 
