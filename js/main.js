@@ -290,8 +290,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // --- Gallery Page: Scroll Reveals ---
-  const revealElements = document.querySelectorAll('.reveal-up, .fade-in');
+  // --- Global Scroll Reveals ---
+  const revealElements = document.querySelectorAll('.reveal-up, .fade-in, .image-reveal');
   if (revealElements.length > 0) {
     const revealObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
@@ -300,7 +300,7 @@ document.addEventListener('DOMContentLoaded', () => {
           observer.unobserve(entry.target);
         }
       });
-    }, { root: null, rootMargin: '0px 0px -100px 0px', threshold: 0.1 });
+    }, { root: null, rootMargin: '0px 0px -100px 0px', threshold: 0.05 });
     
     revealElements.forEach(el => revealObserver.observe(el));
   }

@@ -720,7 +720,7 @@
   }
 
   .team-person-card--darwin img {
-    object-position: center 28%;
+    object-position: center 2%;
   }
 
   .team-person-card--alejandra img {
@@ -1867,7 +1867,7 @@
   }
 
   .about-leader-card--darwin img {
-    object-position: center center;
+    object-position: center 2%;
   }
 
   .about-leader-card--alejandra img {
@@ -3465,8 +3465,9 @@
   /* Reveal Animations */
   .reveal-up {
     opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.8s cubic-bezier(0.2, 1, 0.3, 1), transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+    transform: translateY(45px);
+    transition: opacity 0.95s cubic-bezier(0.25, 1, 0.5, 1), transform 0.95s cubic-bezier(0.25, 1, 0.5, 1);
+    transition-delay: var(--delay, 0s);
   }
 
   .reveal-up.is-visible {
@@ -3476,11 +3477,43 @@
 
   .fade-in {
     opacity: 0;
-    transition: opacity 0.8s ease;
+    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: var(--delay, 0s);
   }
 
   .fade-in.is-visible {
     opacity: 1;
+  }
+
+  /* Image Reveal Zoom Animation */
+  .image-reveal {
+    overflow: hidden;
+  }
+
+  .image-reveal img {
+    transform: scale(1.08);
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: var(--delay, 0s);
+  }
+
+  .image-reveal.is-visible img {
+    transform: scale(1);
+  }
+
+  /* Gentle Card Zoom-in Hover Micro-Animations */
+  .service-card-v2 .card-image-v2,
+  .about-leader-card img,
+  .team-person-photo img,
+  .team-main-photo img,
+  .about-team-photo img {
+    transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .service-card-v2:hover .card-image-v2,
+  .about-leader-card:hover img,
+  .team-person-card:hover .team-person-photo img,
+  .about-team-photo:hover img {
+    transform: scale(1.04);
   }
 
   /* Reduced Motion */
